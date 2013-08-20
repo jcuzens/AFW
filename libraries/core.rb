@@ -257,6 +257,7 @@ module AFW
       iptables_header = "-A INPUT"
       iptables_header << " -i #{interface}" unless interface.nil? or interface.empty?
       sources = expand_targets(node, source,options,name)
+      destinations = expand_targets(node, destination, options, name) unless destination.nil? or destination.empty?
 
     # Outbound rules
     elsif direction == "out"
